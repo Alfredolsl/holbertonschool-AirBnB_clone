@@ -27,4 +27,4 @@ Example 2
 `Documented commands (type help <topic>):`  
 `========================================`  
 `EOF  help  quit`  
-  
+`(hbnb) `
