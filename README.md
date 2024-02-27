@@ -7,7 +7,7 @@ A web application imitating the Airbnb website including both front-end and back
 
 # Command Interpreter
 To initialize it, type in the console:
-- In interacive mode: `./console.py`
+- In interactive mode: `./console.py`
 - In non-interactive mode: `echo (COMMAND) | ./console.py`
 
 # How to use it
