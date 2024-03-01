@@ -28,19 +28,3 @@ class BaseModel:
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id,
                                      self.__class__.__dict__)
-
-
-basemodel = BaseModel()
-basemodel.name = "My First Model"
-basemodel.my_number = 89
-
-#print(basemodel)
-
-basemodel.save()
-
-#print(basemodel)
-
-print("JSON of my model:")
-basemodel_json = basemodel.to_dict()
-for key in basemodel_json.keys():
-    print("\t{}: ({}) - {}".format(key, type(basemodel_json[key]), basemodel_json[key]))
