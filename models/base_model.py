@@ -10,12 +10,13 @@ class BaseModel:
     Defines all common attributes/methods
     for other classes.
     """
-    id = str(uuid4())
-    created_at = datetime.now()
-    updated_at = datetime.now()
+    def __init__(self):
+        self.id = str(uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def save(self):
-        updated_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         todict = {k: v for k, v in self.__dict__.items()}
@@ -29,3 +30,4 @@ class BaseModel:
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id,
                                      self.__class__.__dict__)
+
