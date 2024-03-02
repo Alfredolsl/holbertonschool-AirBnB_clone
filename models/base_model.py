@@ -28,4 +28,4 @@ class BaseModel:
     def __str__(self):
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id,
-                                     elf.__class__.__dict__)
+                                     self.__class__.__dict__)
