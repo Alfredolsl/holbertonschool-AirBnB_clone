@@ -1,0 +1,141 @@
+[
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "uuid4",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "unittest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
+        "documentation": {}
+    },
+    {
+        "label": "pep8",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pep8",
+        "description": "pep8",
+        "detail": "pep8",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "models.base_model",
+        "description": "models.base_model",
+        "isExtraImport": true,
+        "detail": "models.base_model",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "models.base_model",
+        "description": "models.base_model",
+        "isExtraImport": true,
+        "detail": "models.base_model",
+        "documentation": {}
+    },
+    {
+        "label": "FileStorage",
+        "kind": 6,
+        "importPath": "models.engine.file_storage",
+        "description": "models.engine.file_storage",
+        "peekOfCode": "class FileStorage:\n    \"\"\"Representes a storage engine.\"\"\"\n    __file_path = \"file.json\"\n    __objects = {}\n    def all(self):\n        \"\"\"Returns the dictionary __objects\"\"\"\n        return self.__objects\n    def new(self, obj):\n        \"\"\"Sets in __objects the obj\n        with key <obj class name>.id\"\"\"",
+        "detail": "models.engine.file_storage",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "kind": 6,
+        "importPath": "models.base_model",
+        "description": "models.base_model",
+        "peekOfCode": "class BaseModel:\n    \"\"\"\n    Defines all common attributes/methods\n    for other classes.\n    \"\"\"\n    def __init__(self, *args, **kwargs):\n        timeformat = \"%Y-%m-%dT%H:%M:%S.%f\"\n        if len(kwargs) != 0:\n            for k, v in kwargs.items():\n                if k == \"created_at\" or k == \"updated_at\":",
+        "detail": "models.base_model",
+        "documentation": {}
+    },
+    {
+        "label": "TestBaseModel",
+        "kind": 6,
+        "importPath": "tests.test_models.test_base_model",
+        "description": "tests.test_models.test_base_model",
+        "peekOfCode": "class TestBaseModel(unittest.TestCase):\n    \"\"\"\n    A class to test the Base Class\n    \"\"\"\n    def setUp(self):\n        \"\"\"\n        Setup method to create an instance of BaseModel before each test.\n        \"\"\"\n        self.base_model = BaseModel()\n    def test_id_is_string(self):",
+        "detail": "tests.test_models.test_base_model",
+        "documentation": {}
+    },
+    {
+        "label": "my_model",
+        "kind": 5,
+        "importPath": "test_base_model",
+        "description": "test_base_model",
+        "peekOfCode": "my_model = BaseModel()\nmy_model.name = \"My First Model\"\nmy_model.my_number = 89\nprint(my_model)\nmy_model.save()\nprint(my_model)\nmy_model_json = my_model.to_dict()\nprint(my_model_json)\nprint(\"JSON of my_model:\")\nfor key in my_model_json.keys():",
+        "detail": "test_base_model",
+        "documentation": {}
+    },
+    {
+        "label": "my_model.name",
+        "kind": 5,
+        "importPath": "test_base_model",
+        "description": "test_base_model",
+        "peekOfCode": "my_model.name = \"My First Model\"\nmy_model.my_number = 89\nprint(my_model)\nmy_model.save()\nprint(my_model)\nmy_model_json = my_model.to_dict()\nprint(my_model_json)\nprint(\"JSON of my_model:\")\nfor key in my_model_json.keys():\n    print(\"\\t{}: ({}) - {}\".format(key, type(my_model_json[key]), my_model_json[key]))",
+        "detail": "test_base_model",
+        "documentation": {}
+    },
+    {
+        "label": "my_model.my_number",
+        "kind": 5,
+        "importPath": "test_base_model",
+        "description": "test_base_model",
+        "peekOfCode": "my_model.my_number = 89\nprint(my_model)\nmy_model.save()\nprint(my_model)\nmy_model_json = my_model.to_dict()\nprint(my_model_json)\nprint(\"JSON of my_model:\")\nfor key in my_model_json.keys():\n    print(\"\\t{}: ({}) - {}\".format(key, type(my_model_json[key]), my_model_json[key]))",
+        "detail": "test_base_model",
+        "documentation": {}
+    },
+    {
+        "label": "my_model_json",
+        "kind": 5,
+        "importPath": "test_base_model",
+        "description": "test_base_model",
+        "peekOfCode": "my_model_json = my_model.to_dict()\nprint(my_model_json)\nprint(\"JSON of my_model:\")\nfor key in my_model_json.keys():\n    print(\"\\t{}: ({}) - {}\".format(key, type(my_model_json[key]), my_model_json[key]))",
+        "detail": "test_base_model",
+        "documentation": {}
+    }
+]
