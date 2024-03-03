@@ -7,10 +7,12 @@ class FileStorage:
     """Representes a storage engine."""
     __file_path = "file.json"
     __objects = {}
-
+    
+    
     def all(self):
         """Returns the dictionary __objects"""
         return self.__objects
+
 
     def new(self, obj):
         """Sets in __objects the obj
@@ -28,7 +30,7 @@ class FileStorage:
 
     def reload(self):
         try:
-            with open(FileStorage.__file_path, "r") as f:
+            with open(FileStorage.__file_path) as f:
                 objdict = json.load(f)
                 for obj in objdict.values():
                     clsname = obj["__class__"]

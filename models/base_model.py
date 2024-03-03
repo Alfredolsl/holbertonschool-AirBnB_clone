@@ -4,6 +4,9 @@
 from uuid import uuid4
 from datetime import datetime
 
+import models
+from models.engine.file_storage import FileStorage
+
 
 class BaseModel:
     """
@@ -12,6 +15,9 @@ class BaseModel:
     """
     def __init__(self, *args, **kwargs):
         timeformat = "%Y-%m-%dT%H:%M:%S.%f"
+        self.id = str(uuid4())
+        self.created_at = datetime.today()
+        self.updated_at = self.created_at
         if len(kwargs) != 0:
             for k, v in kwargs.items():
                 if k == "created_at" or k == "updated_at":
@@ -19,12 +25,11 @@ class BaseModel:
                 elif k != "__class__":
                     self.__dict__[k] = v
         else:
-            self.id = str(uuid4())
-            self.created_at = datetime.today()
-            self.updated_at = self.created_at
+            models.storage.new(self)
 
     def save(self):
         self.updated_at = datetime.today()
+        models.storage.new(self)
 
     def to_dict(self):
         todict = {k: v for k, v in self.__dict__.items()}
