@@ -5,7 +5,6 @@ from uuid import uuid4
 from datetime import datetime
 
 import models
-from models.engine.file_storage import FileStorage
 
 
 class BaseModel:
@@ -29,7 +28,7 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.today()
-        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         todict = {k: v for k, v in self.__dict__.items()}

@@ -2,6 +2,8 @@
 """Defines the file storage class."""
 import json
 
+from models.base_model import BaseModel
+
 
 class FileStorage:
     """Representes a storage engine."""
@@ -11,7 +13,7 @@ class FileStorage:
     
     def all(self):
         """Returns the dictionary __objects"""
-        return self.__objects
+        return FileStorage.__objects
 
 
     def new(self, obj):
@@ -25,8 +27,8 @@ class FileStorage:
         JSON File."""
         objdict = self.__objects
         dict_to_json = {obj: objdict[obj].to_dict() for obj in objdict.keys()}
-        with open(self.__file_path, "w", encoder="utf-8") as f:
-            json.dump(dict_to_json)
+        with open(FileStorage.__file_path, "w") as f:
+            json.dump(dict_to_json, f)
 
     def reload(self):
         try:
@@ -35,6 +37,6 @@ class FileStorage:
                 for obj in objdict.values():
                     clsname = obj["__class__"]
                     del obj["__class__"]
-                    self.new(eval(cls_name)(**obj))
+                    self.new(eval(clsname)(**obj))
         except FileNotFoundError:
             return
