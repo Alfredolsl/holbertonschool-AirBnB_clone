@@ -80,7 +80,7 @@
         "kind": 6,
         "importPath": "models.engine.file_storage",
         "description": "models.engine.file_storage",
-        "peekOfCode": "class FileStorage:\n    \"\"\"Representes a storage engine.\"\"\"\n    __file_path = \"file.json\"\n    __objects = {}\n    def all(self):\n        \"\"\"Returns the dictionary __objects\"\"\"\n        return __objects\n    def new(self, obj):\n        \"\"\"Sets in __objects the obj\n        with key <obj class name>.id\"\"\"",
+        "peekOfCode": "class FileStorage:\n    \"\"\"Representes a storage engine.\"\"\"\n    __file_path = \"file.json\"\n    __objects = {}\n    def all(self):\n        \"\"\"Returns the dictionary __objects\"\"\"\n        return self.__objects\n    def new(self, obj):\n        \"\"\"Sets in __objects the obj\n        with key <obj class name>.id\"\"\"",
         "detail": "models.engine.file_storage",
         "documentation": {}
     },

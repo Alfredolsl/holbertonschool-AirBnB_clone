@@ -10,7 +10,7 @@ class FileStorage:
 
     def all(self):
         """Returns the dictionary __objects"""
-        return __objects
+        return self.__objects
 
     def new(self, obj):
         """Sets in __objects the obj
@@ -23,7 +23,7 @@ class FileStorage:
         JSON File."""
         objdict = FileStorage.__objects
         dict_to_json = {obj: objdict[obj].to_dict() for obj in objdict.keys()}
-        with open(__file_path, "w", encoder="utf-8") as f:
+        with open(self.__file_path, "w", encoder="utf-8") as f:
             json.dump(dict_to_json)
 
     def reload(self):
