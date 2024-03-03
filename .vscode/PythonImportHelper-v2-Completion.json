@@ -96,10 +96,10 @@
     {
         "label": "TestBaseModel",
         "kind": 6,
-        "importPath": "tests.test_base_model",
-        "description": "tests.test_base_model",
+        "importPath": "tests.test_models.test_base_model",
+        "description": "tests.test_models.test_base_model",
         "peekOfCode": "class TestBaseModel(unittest.TestCase):\n    \"\"\"\n    A class to test the Base Class\n    \"\"\"\n    def setUp(self):\n        \"\"\"\n        Setup method to create an instance of BaseModel before each test.\n        \"\"\"\n        self.base_model = BaseModel()\n    def test_id_is_string(self):",
-        "detail": "tests.test_base_model",
+        "detail": "tests.test_models.test_base_model",
         "documentation": {}
     },
     {
