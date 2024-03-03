@@ -3,6 +3,12 @@ import cmd
 
 
 class HBNBCommand(cmd.Cmd):
+    """
+    HolbertonBnB command interpreter.
+
+    Attributes:
+        prompt (str): Command prompt.
+    """
     prompt = "(hbnb) "
 
     def emptyline(self):
