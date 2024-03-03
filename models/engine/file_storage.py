@@ -9,16 +9,13 @@ class FileStorage:
     """Representes a storage engine."""
     __file_path = "file.json"
     __objects = {}
-    
-    
+
     def all(self):
         """Returns the dictionary __objects"""
-        return FileStorage.__objects
-
+        return self.__objects
 
     def new(self, obj):
-        """Sets in __objects the obj
-        with key <obj class name>.id"""
+        """Sets in __objects the obj with key <obj class name>.id"""
         ocname = obj.__class__.__name__
         self.__objects["{}.{}".format(ocname, obj.id)] = obj
 

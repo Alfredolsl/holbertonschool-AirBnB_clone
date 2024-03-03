@@ -8,10 +8,7 @@ import models
 
 
 class BaseModel:
-    """
-    Defines all common attributes/methods
-    for other classes.
-    """
+    """Defines all common attributes/methods for other classes."""
     def __init__(self, *args, **kwargs):
         timeformat = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
