@@ -28,7 +28,7 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        todict = {k: v for k, v in self.__dict__.items()}
+        todict = self.__dict__.copy()
         todict["created_at"] = self.created_at.isoformat()
         todict["updated_at"] = self.updated_at.isoformat()
         todict["__class__"] = self.__class__.__name__
