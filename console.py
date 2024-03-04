@@ -107,7 +107,11 @@ class HBNBCommand(cmd.Cmd):
             obj = objdict["{}.{}".format(parser[0], parser[1])]
             attr = parser[2]
             value = parser[3]
-            obj.__dict__[attr] = value
+            if attr in obj.__class__.__dict__.keys():
+                valtype = type(obj.__class__.__dict__[attr])
+                obj.__dict__[attr] = valtype(value)
+            else:
+                obj.__dict__[attr] = value
             storage.save()
 
     def do_EOF(self, arg):
