@@ -4,6 +4,7 @@ import cmd
 
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -14,7 +15,8 @@ class HBNBCommand(cmd.Cmd):
         prompt (str): Command prompt.
     """
     prompt = "(hbnb) "
-    __classes = {"BaseModel"}
+    __classes = {"BaseModel", 
+                 "User"}
 
     def emptyline(self):
         """Overrides emptyline function."""
@@ -97,7 +99,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(parser) == 1:
             print("** instance id missing **")
-        elif "{}.{}".format(parser[0], parser[1]) not in objdict:
+        elif "{}.{}".format(parser[0], parser[1]) not in objdict.keys():
             print("** no instance found **")
         elif len(parser) == 2:
             print("** attribute name missing **")
@@ -112,7 +114,7 @@ class HBNBCommand(cmd.Cmd):
                 obj.__dict__[attr] = valtype(value)
             else:
                 obj.__dict__[attr] = value
-            storage.save()
+        storage.save()
 
     def do_EOF(self, arg):
         "Exit program."
