@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
         objdict = storage.all()
 
         if len(parser) == 0:
-            print("** class name is missing **")
+            print("** class name missing **")
         elif parser[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         elif len(parser) == 1:
@@ -59,7 +59,7 @@ class HBNBCommand(cmd.Cmd):
         objdict = storage.all()
 
         if len(parser) == 0:
-            print("** class name is missing **")
+            print("** class name missing **")
         elif parser[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         elif len(parser) == 1:
@@ -92,7 +92,7 @@ class HBNBCommand(cmd.Cmd):
         objdict = storage.all()
         parser = arg.split()
         if len(parser) == 0:
-            print("** class name is missing **")
+            print("** class name missing **")
         elif parser[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         elif len(parser) == 1:
