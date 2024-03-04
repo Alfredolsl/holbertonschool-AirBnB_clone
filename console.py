@@ -102,13 +102,15 @@ class HBNBCommand(cmd.Cmd):
         elif len(parser) == 2:
             print("** attribute name missing **")
         elif len(parser) == 3:
+            [O
             print("** value missing **")
         elif len(parser) == 4:
-            obj = "{}.{}".format(parser[0], parser[1])
+            obj = objdict["{}.{}".format(parser[0], parser[1])]
             attr = parser[2]
             value = parser[3]
-            if hasattr(objdict[obj], attr) is True:
-                objdict[obj].attr = value
+            if attr in obj.__class__.__dict__.keys():
+                obj.__dict__[attr] = value
+                storage.save()
 
 
 
