@@ -102,7 +102,6 @@ class HBNBCommand(cmd.Cmd):
         elif len(parser) == 2:
             print("** attribute name missing **")
         elif len(parser) == 3:
-            [O
             print("** value missing **")
         elif len(parser) == 4:
             obj = objdict["{}.{}".format(parser[0], parser[1])]
