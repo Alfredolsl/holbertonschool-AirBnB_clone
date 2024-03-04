@@ -114,7 +114,7 @@ class HBNBCommand(cmd.Cmd):
                 obj.__dict__[attr] = valtype(value)
             else:
                 obj.__dict__[attr] = value
-        storage.save()
+            storage.save()
 
     def do_EOF(self, arg):
         "Exit program."
