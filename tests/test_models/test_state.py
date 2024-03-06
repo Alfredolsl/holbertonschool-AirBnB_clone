@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """
-Unittest Amenity class
+Unittest State class
 """
 
 
 import unittest
 import pep8
 import sys
-import os
 from datetime import datetime
-from models import amenity
-from models.amenity import Amenity
+from models import state
+from models.state import State
+import os
 
 
 class TestPep8B(unittest.TestCase):
@@ -18,8 +18,8 @@ class TestPep8B(unittest.TestCase):
     def test_pep8(self):
         """ test base and test_base for pep8 conformance """
         style = pep8.StyleGuide(quiet=True)
-        file1 = 'models/amenity.py'
-        file2 = 'tests/test_models/test_amenity.py'
+        file1 = 'models/state.py'
+        file2 = 'tests/test_models/test_state.py'
         result = style.check_files([file1, file2])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warning).")
@@ -29,25 +29,25 @@ class TestDocsB(unittest.TestCase):
     """ check for documentation """
     def test_module_doc(self):
         """ check for module documentation """
-        self.assertTrue(len(amenity.__doc__) > 0)
+        self.assertTrue(len(state.__doc__) > 0)
 
     def test_class_doc(self):
         """ check for documentation """
-        self.assertTrue(len(Amenity.__doc__) > 0)
+        self.assertTrue(len(State.__doc__) > 0)
 
     def test_method_docs(self):
         """ check for method documentation """
-        for func in dir(Amenity):
+        for func in dir(State):
             self.assertTrue(len(func.__doc__) > 0)
 
 
-class BaseModelclassTests(unittest.TestCase):
-    """ Test Case for base_model moudle """
+class StateclassTests(unittest.TestCase):
+    """ Test Case for state module """
 
     def setUp(self):
         """ Create instance global  """
-        self.ins0 = Amenity()
-        self.ins1 = Amenity()
+        self.ins0 = State()
+        self.ins1 = State()
 
     def tearDown(self):
         """ Clean All test case """
@@ -55,16 +55,16 @@ class BaseModelclassTests(unittest.TestCase):
 
     def test_instance(self):
         """ Test Case to check instance  """
-        self.assertIsInstance(self.ins0, Amenity)
-        self.assertIsInstance(self.ins1, Amenity)
+        self.assertIsInstance(self.ins0, State)
+        self.assertIsInstance(self.ins1, State)
 
     def test_permissions(self):
         """test read-write-execute permissions"""
-        read = os.access('models/amenity.py', os.R_OK)
+        read = os.access('models/state.py', os.R_OK)
         self.assertTrue(read)
-        write = os.access('models/amenity.py', os.W_OK)
+        write = os.access('models/state.py', os.W_OK)
         self.assertTrue(write)
-        exe = os.access('models/amenity.py', os.X_OK)
+        exe = os.access('models/state.py', os.X_OK)
         self.assertTrue(exe)
 
     def test_id(self):
@@ -87,7 +87,7 @@ class BaseModelclassTests(unittest.TestCase):
         self.assertNotEqual(cre, up)  # time create and update are diff
 
     def test_to_dict(self):
-        """ The value return by to_dict the same value """
+        """ The dict return is the same """
         dateform = '%Y-%m-%dT%H:%M:%S.%f'
         dic = self.ins0.to_dict()
         self.assertEqual(type(dic['created_at']), str)
@@ -98,10 +98,9 @@ class BaseModelclassTests(unittest.TestCase):
                          self.ins0.updated_at.strftime(dateform))
 
     def test_name_str(self):
-        """ Test data type intro. Will be str """
+        """ Test type of date. Will be str"""
         namestr = self.ins0.name
         self.assertEqual(type(namestr), str)
-
 
 if __name__ == '__main__':
     unittest.main()
