@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Unittest BaseModel class
+Unittest Amenity class
 """
 
 
@@ -9,8 +9,8 @@ import pep8
 import sys
 import os
 from datetime import datetime
-from models import base_model
-from models.base_model import BaseModel
+from models import amenity
+from models.amenity import Amenity
 
 
 class TestPep8B(unittest.TestCase):
@@ -18,8 +18,8 @@ class TestPep8B(unittest.TestCase):
     def test_pep8(self):
         """ test base and test_base for pep8 conformance """
         style = pep8.StyleGuide(quiet=True)
-        file1 = 'models/base_model.py'
-        file2 = 'tests/test_models/test_base_model.py'
+        file1 = 'models/amenity.py'
+        file2 = 'tests/test_models/test_amenity.py'
         result = style.check_files([file1, file2])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warning).")
@@ -29,15 +29,15 @@ class TestDocsB(unittest.TestCase):
     """ check for documentation """
     def test_module_doc(self):
         """ check for module documentation """
-        self.assertTrue(len(base_model.__doc__) > 0)
+        self.assertTrue(len(amenity.__doc__) > 0)
 
     def test_class_doc(self):
         """ check for documentation """
-        self.assertTrue(len(BaseModel.__doc__) > 0)
+        self.assertTrue(len(Amenity.__doc__) > 0)
 
     def test_method_docs(self):
         """ check for method documentation """
-        for func in dir(BaseModel):
+        for func in dir(Amenity):
             self.assertTrue(len(func.__doc__) > 0)
 
 
@@ -46,8 +46,8 @@ class BaseModelclassTests(unittest.TestCase):
 
     def setUp(self):
         """ Create instance global  """
-        self.ins0 = BaseModel()
-        self.ins1 = BaseModel()
+        self.ins0 = Amenity()
+        self.ins1 = Amenity()
 
     def tearDown(self):
         """ Clean All test case """
@@ -55,16 +55,16 @@ class BaseModelclassTests(unittest.TestCase):
 
     def test_instance(self):
         """ Test Case to check instance  """
-        self.assertIsInstance(self.ins0, BaseModel)
-        self.assertIsInstance(self.ins1, BaseModel)
+        self.assertIsInstance(self.ins0, Amenity)
+        self.assertIsInstance(self.ins1, Amenity)
 
     def test_permissions(self):
         """test read-write-execute permissions"""
-        read = os.access('models/base_model.py', os.R_OK)
+        read = os.access('models/amenity.py', os.R_OK)
         self.assertTrue(read)
-        write = os.access('models/base_model.py', os.W_OK)
+        write = os.access('models/amenity.py', os.W_OK)
         self.assertTrue(write)
-        exe = os.access('models/base_model.py', os.X_OK)
+        exe = os.access('models/amenity.py', os.X_OK)
         self.assertTrue(exe)
 
     def test_id(self):
@@ -77,7 +77,7 @@ class BaseModelclassTests(unittest.TestCase):
         self.assertEqual(type(self.ins0.id), str)
         self.assertEqual(type(self.ins1.id), str)
 
-    def test_datetime(self):
+    def test_datetime_save(self):
         """ Test datetime to compare format """
         cre = self.ins0.created_at
         self.ins0.save()
@@ -86,16 +86,8 @@ class BaseModelclassTests(unittest.TestCase):
         self.assertEqual(type(up), datetime)
         self.assertNotEqual(cre, up)  # time create and update are diff
 
-    def test_save(self):
-        """ Test save method to validate """
-        newinst = BaseModel()  # New instance
-        first_up = newinst.updated_at  # save fisrt update
-        newinst.save()  # Save instance as dictionary
-        second_up = newinst.updated_at  # save second update
-        self.assertNotEqual(first_up, second_up)  # second_up diff first_up
-
     def test_to_dict(self):
-        """ The dict return is the same """
+        """ The value return by to_dict the same value """
         dateform = '%Y-%m-%dT%H:%M:%S.%f'
         dic = self.ins0.to_dict()
         self.assertEqual(type(dic['created_at']), str)
@@ -104,6 +96,12 @@ class BaseModelclassTests(unittest.TestCase):
                          self.ins0.created_at.strftime(dateform))
         self.assertEqual(dic['updated_at'],
                          self.ins0.updated_at.strftime(dateform))
+
+    def test_name_str(self):
+        """ Test data type intro. Will be str """
+        namestr = self.ins0.name
+        self.assertEqual(type(namestr), str)
+
 
 if __name__ == '__main__':
     unittest.main()
