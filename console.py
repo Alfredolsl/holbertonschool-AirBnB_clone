@@ -83,6 +83,7 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_all(self, arg):
+        """Shows all classes inside storage."""
         objdict = storage.all()
         parser = arg.split()
         if len(parser) != 0 and parser[0] not in HBNBCommand.__classes:
