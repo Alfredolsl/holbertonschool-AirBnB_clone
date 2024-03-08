@@ -24,10 +24,13 @@ class BaseModel:
             models.storage.new(self)
 
     def save(self):
+        """Saves updated attributes and saves time of update in
+        updated_at."""
         self.updated_at = datetime.today()
         models.storage.save()
 
     def to_dict(self):
+        """Represents instance in dictionary"""
         todict = self.__dict__.copy()
         todict["created_at"] = self.created_at.isoformat()
         todict["updated_at"] = self.updated_at.isoformat()
@@ -35,6 +38,7 @@ class BaseModel:
         return todict
 
     def __str__(self):
+        """Prints representation of class or inherited class."""
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id,
-                                     self.__class__.__dict__)
+                                     self.__dict__)
