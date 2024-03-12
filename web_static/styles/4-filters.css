@@ -23,6 +23,6 @@ section.filters button {
 	text-align: center;
 }
 
-section.filters button::hover {
+section.filters button:hover {
 	opacity: 0.9;
 }
