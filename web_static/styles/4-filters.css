@@ -5,7 +5,7 @@
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 }
 
@@ -14,13 +14,10 @@ section.filters button {
 	background-color: #FF5A5F;
 	color: #FFFFFF;
 	height: 48px;
-	width: 20%;
-	border-width: 0px;
+	border: 0px;
 	border-radius: 4px;
-	display: flex;
+	width: 20%;
 	margin-right: 30px;
-	align-items: center;
-	text-align: center;
 }
 
 section.filters button:hover {
