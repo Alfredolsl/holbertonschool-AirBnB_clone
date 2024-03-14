@@ -47,20 +47,40 @@ section.filters button:hover {
 }
 
 .popover {
+	display: none;
 	background-color: #FAFAFA;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
 	margin-left: -51px;
 	margin-top: 17px;
-	padding: 10px;
+	padding: 30px;
 	padding-bottom: 30px;
+}
+
+.locations > .popover {
+	padding-top: 0px;
+}
+
+.locations > .popover > li > ul {
+	margin-left: -20px;
 }
 
 .popover h2 {
 	margin-bottom: 0;
-	margin-left: 20px;
 }
 
 .popover ul, .popover li {
 	list-style: none;
+}
+
+.popover > li > ul > li {
+	margin: 5px 0 5px 0;
+}
+
+.amenities > .popover > li {
+	margin-bottom: 5px;
+}
+
+.locations:hover > .popover, .amenities:hover > .popover {
+	display: block;
 }
